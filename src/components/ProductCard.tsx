@@ -1,1 +1,2 @@
 //productcard
+export {};

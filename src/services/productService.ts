@@ -1,1 +1,2 @@
 //Fetching product data
+export {};
