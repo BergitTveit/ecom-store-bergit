@@ -1,9 +1,11 @@
 import React from "react";
+import { Provider } from "react-redux";
 import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
+import { store } from "./store/store"; //test wip
+import ProductList from "./components/ProductList"; //test wip
 
 function App() {
   return (
@@ -23,6 +25,12 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+        {" "}
+        <Provider store={store}>
+          <ProductList />
+        </Provider>
+      </div>
       <Footer />
     </div>
   );
