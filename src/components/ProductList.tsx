@@ -1,12 +1,13 @@
 // src/components/ProductList.tsx
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../store/productSlice';  // Make sure this path is correct
-import { RootState } from '../store/store';  // Make sure this path is correct
+import React, { useEffect } from "react";
+import { fetchProducts } from "../store/productSlice";
+import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 
 const ProductList = () => {
-  const dispatch = useDispatch();
-  const { products, loading, error } = useSelector((state: RootState) => state.products);
+  const dispatch = useAppDispatch(); // Use typed dispatch
+  const { products, loading, error } = useAppSelector(
+    (state) => state.products
+  ); // Use typed selector
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -17,7 +18,7 @@ const ProductList = () => {
 
   return (
     <div>
-      {products.map(product => (
+      {products.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
           <p>${product.price}</p>
