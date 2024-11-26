@@ -7,6 +7,7 @@ import CheckoutPage from "../pages/CheckoutPage";
 import CheckoutSuccessPage from "../pages/CheckoutSuccessPage";
 import ContactPage from "../pages/ContactPage";
 
+// Base for routes set up
 const AppRoutes = () => {
   return (
     <Routes>

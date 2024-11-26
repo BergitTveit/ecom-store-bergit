@@ -6,7 +6,7 @@ const Footer = (props: { basic?: boolean }) => {
   return (
     <header>
       <div>
-        <h1>COM STORE</h1>
+        <h3>COM STORE</h3>
       </div>
       <nav>
         <ul>
