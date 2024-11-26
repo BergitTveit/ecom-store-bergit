@@ -1,7 +1,11 @@
-import { useAppSelector } from '../hooks/reduxHooks';
+import { useAppSelector } from "../hooks/reduxHooks";
+
+// import ProductList from "../components/ProductList";
 
 const HomePage = () => {
-  const { products, loading, error } = useAppSelector((state) => state.products);
+  const { products, loading, error } = useAppSelector(
+    (state) => state.products
+  );
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -9,14 +13,7 @@ const HomePage = () => {
   return (
     <div>
       <h1>Home Page</h1>
-      <div>
-        {products.map(product => (
-          <div key={product.id}>
-            <h2>{product.title}</h2>
-            <p>${product.price}</p>
-          </div>
-        ))}
-      </div>
+      {/* Products */}
     </div>
   );
 };
