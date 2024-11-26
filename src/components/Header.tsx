@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -6,25 +6,39 @@ import {
   faBars,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+// import styles from './Header.module.css';
 
 // check if it will become reusable type, then move
 // The header should contain a nav bar as well as a Cart icon component that acts as a button as well as displays the current number of items in the cart.
 const Header = (props: { basic?: boolean }) => {
   return (
-    <header>
+    <header className="styles.header">
       <div>
-        <h1>COM STORE</h1>
+        <h1>COM {/*LOGO  */}STORE</h1>
       </div>
-      <nav>
+
+      <nav className="{styles.nav}">
         <ul>
-          <li>
+          <li> 
             <a href="/">
               <FontAwesomeIcon icon={faHome} />
-              Home
+              {/*alt text home */}
             </a>
+             <h3>test
+            
+             </h3>
+                {/*Tags */}
+                  {/*Tags  */}
+           
           </li>
         </ul>
       </nav>
+
+ {/*Cart icon  */}
+
+
     </header>
   );
 };
