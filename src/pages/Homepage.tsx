@@ -13,6 +13,7 @@ const HomePage = () => {
   return (
     <div>
       <h1>Wip: List of products</h1>
+      <h2>test</h2>
       {/* Products */}
     </div>
   );
