@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Product, ApiResponse } from "../types/api.types";
+import { Product, ApiResponse } from "../types/api";
 
 const BASE_URL = "https://v2.api.noroff.dev/online-shop";
 
