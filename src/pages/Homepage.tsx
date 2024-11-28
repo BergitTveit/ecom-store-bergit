@@ -1,6 +1,5 @@
+import ProductList from "../components/ProductList";
 import { useAppSelector } from "../hooks/reduxHooks";
-
-// import ProductList from "../components/ProductList";
 
 const HomePage = () => {
   const { products, loading, error } = useAppSelector(
@@ -13,8 +12,8 @@ const HomePage = () => {
   return (
     <div>
       <h1>Wip: List of products</h1>
+      {/* <ProductList /> Resolve request error. Too many requests.. */}
       <h2>test</h2>
-      {/* Products */}
     </div>
   );
 };
