@@ -32,7 +32,7 @@ export const HeaderContainer = styled.header`
 
 export const LogoContainer = styled.div`
   ${flexCenter}
-
+  flex: 0 0 auto;
   img {
     height: 35px;
     width: auto;

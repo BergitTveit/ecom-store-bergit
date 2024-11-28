@@ -3,6 +3,15 @@ import { colors, flexCenter } from "../../assets/styles/shared";
 
 export const IconsContainer = styled.div`
   ${flexCenter}
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding-left: 1rem;
+  min-width: 40px;
+
+  @media (max-width: 767px) {
+    position: relative;
+    right: 0;
+  }
   gap: 1.5rem;
 
   svg {

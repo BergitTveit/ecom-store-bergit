@@ -14,9 +14,7 @@ const Header = (props: { basic?: boolean }) => {
         </Link>
       </LogoContainer>
       <Navigation />
-      <IconsContainer>
-        <CartIcon />
-      </IconsContainer>
+      <CartIcon />
     </HeaderContainer>
   );
 };

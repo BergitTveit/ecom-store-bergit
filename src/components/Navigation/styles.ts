@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { colors, flexCenter } from "../../assets/styles/shared";
 
-export const Nav = styled.nav`
+export const NavigationContainer = styled.nav`
+  flex: 1;
   display: none; // Hide on mobile by default
 
   @media (min-width: 768px) {
     ${flexCenter}
-    flex: 1;
     margin: 0 2rem;
   }
 `;

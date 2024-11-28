@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { Nav, NavItem, NavList } from "./styles";
+import { NavigationContainer, NavItem, NavList } from "./styles";
 
 const Navigation = () => {
   return (
-    <Nav>
+    <NavigationContainer>
       <NavList>
         {[
           { to: "/", icon: faHome, text: "Home" },
@@ -23,7 +23,7 @@ const Navigation = () => {
           </NavItem>
         ))}
       </NavList>
-    </Nav>
+    </NavigationContainer>
   );
 };
 
