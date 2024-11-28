@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFaceDizzy,
-  faFaceFlushed,
-  faFaceGrimace,
-} from "@fortawesome/free-solid-svg-icons";
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -21,25 +21,24 @@ const Footer = () => {
               href="#"
               className="text-black hover:text-primary transition-colors"
             >
-              <FontAwesomeIcon icon={faFaceGrimace} className="text-xl" />
+              <FontAwesomeIcon icon={faFacebook} className="text-xl" />
             </a>
             <a
               href="#"
               className="text-black hover:text-primary transition-colors"
             >
-              <FontAwesomeIcon icon={faFaceDizzy} className="text-xl" />
+              <FontAwesomeIcon icon={faInstagram} className="text-xl" />
             </a>
             <a
               href="#"
               className="text-black hover:text-primary transition-colors"
             >
-              <FontAwesomeIcon icon={faFaceFlushed} className="text-xl" />
+              <FontAwesomeIcon icon={faTwitter} className="text-xl" />
             </a>
           </div>
         </div>
 
         <div className="flex flex-col items-center text-center">
-          <h4 className="text-lg text-black mb-2">Quick Links</h4>
           <ul className="list-none p-0 m-0 flex flex-col gap-2">
             {[
               { to: "/", text: "About" },
@@ -74,7 +73,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-
+      {/* Add to the top button */}
       <div className="max-w-container mx-auto flex items-center justify-center px-4 mt-8 pt-4 border-t border-black/10 text-xs text-black">
         <p>
           &copy; {new Date().getFullYear()} Obsess and Possess. All rights
