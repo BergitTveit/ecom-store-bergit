@@ -1,5 +1,15 @@
-// src/styles/SharedStyles.ts
 import { css } from "styled-components";
+
+export const mainLayoutStyle = css`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const mainContentStyle = css`
+  flex: 1;
+  padding: 20px 0;
+`;
 
 export const colors = {
   primary: "#fe3a64",
@@ -28,20 +38,25 @@ export const containerStyle = css`
   padding: 0 20px;
 `;
 
-export const buttonStyle = css`
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+// export const buttonStyle = css`
+//   padding: 10px 20px;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+//   transition: all 0.3s ease;
 
-  &:hover {
-    opacity: 0.9;
-  }
-`;
+//   &:hover {
+//     opacity: 0.9;
+//   }
+// `;
 
 export const mobile = (inner: any) => css`
   @media (max-width: 768px) {
     ${inner}
   }
 `;
+
+export const headerHeight = {
+  desktop: "600px",
+  mobile: "60px",
+};
