@@ -16,6 +16,7 @@ const Header = (props: { basic?: boolean }) => {
         </Link>
       </div>
       <Navigation />
+      {/* searchicon, to open searchbar?  */}
       <CartIcon />
     </header>
   );
