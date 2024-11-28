@@ -5,30 +5,45 @@ import {
   flexBetween,
   flexCenter,
   headerHeight,
-  mobile,
 } from "../../assets/styles/shared";
 
 export const HeaderContainer = styled.header`
   ${containerStyle}
   ${flexBetween}
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   background: ${colors.secondary};
-  height: ${headerHeight.desktop}
+  height: ${headerHeight.mobile}
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+    @media (min-width: 768px) {
+    height: ${headerHeight.tablet};
+    padding: 0 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    height: ${headerHeight.desktop};
+    padding: 0 4rem;
+  }
 `;
-// Add mobile height, with two arguments later into header.
 
 export const LogoContainer = styled.div`
   ${flexCenter}
 
   img {
-    height: 50px;
+    height: 35px;
     width: auto;
+    transition: height 0.3s ease;
 
-    ${mobile`
+    @media (min-width: 768px) {
       height: 40px;
-    `}
+    }
+
+    @media (min-width: 1024px) {
+      height: 50px;
+    }
   }
 `;
-
-

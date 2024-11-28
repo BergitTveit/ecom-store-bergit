@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import { colors, flexCenter, mobile } from "../../assets/styles/shared";
+import { colors, flexCenter } from "../../assets/styles/shared";
 
 export const Nav = styled.nav`
-  ${flexCenter}
-  flex: 1;
-  margin: 0 2rem;
+  display: none; // Hide on mobile by default
 
-  ${mobile`
-    display: none;
-  `}
+  @media (min-width: 768px) {
+    ${flexCenter}
+    flex: 1;
+    margin: 0 2rem;
+  }
 `;
 
 export const NavList = styled.ul`
@@ -33,6 +33,15 @@ export const NavItem = styled.li`
 
     svg {
       font-size: 1.2rem;
+
+      @media (min-width: 768px) {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
     }
   }
 

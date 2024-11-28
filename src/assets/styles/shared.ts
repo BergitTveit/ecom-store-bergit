@@ -1,4 +1,16 @@
 import { css } from "styled-components";
+export const breakpoints = {
+  sm: "640px", // mobile
+  md: "768px", // tablet
+  lg: "1024px", // laptop
+  xl: "1280px", // desktop
+};
+
+export const headerHeight = {
+  desktop: "80px",
+  tablet: "70px",
+  mobile: "60px",
+};
 
 export const mainLayoutStyle = css`
   min-height: 100vh;
@@ -50,13 +62,8 @@ export const containerStyle = css`
 //   }
 // `;
 
-export const mobile = (inner: any) => css`
-  @media (max-width: 768px) {
-    ${inner}
-  }
-`;
-
-export const headerHeight = {
-  desktop: "600px",
-  mobile: "60px",
-};
+// export const mobile = (inner: any) => css`
+//   @media (max-width: 768px) {
+//     ${inner}
+//   }
+// `;
