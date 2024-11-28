@@ -1,7 +1,7 @@
 // src/components/ProductList.tsx
 import React, { useEffect } from "react";
-import { fetchProducts } from "../store/productSlice";
-import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { fetchProducts } from "../../store/productSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 
 const ProductList = () => {
   const dispatch = useAppDispatch(); // Use typed dispatch

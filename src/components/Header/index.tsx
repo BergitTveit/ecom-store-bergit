@@ -1,15 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import {
-  HeaderContainer,
-  LogoContainer,
-  IconsContainer,
-  CartIcon,
-  CartCount,
-} from "./styles";
+import { HeaderContainer, LogoContainer } from "./styles";
 import Navigation from "../Navigation";
+import CartIcon from "../CartIcon";
+import { IconsContainer } from "../CartIcon/styles";
 
 const Header = (props: { basic?: boolean }) => {
   return (
@@ -21,13 +15,7 @@ const Header = (props: { basic?: boolean }) => {
       </LogoContainer>
       <Navigation />
       <IconsContainer>
-        <FontAwesomeIcon icon={faSearch} />
-        <Link to="/cart">
-          <CartIcon>
-            <FontAwesomeIcon icon={faShoppingCart} />
-            <CartCount>0</CartCount>
-          </CartIcon>
-        </Link>
+        <CartIcon />
       </IconsContainer>
     </HeaderContainer>
   );
