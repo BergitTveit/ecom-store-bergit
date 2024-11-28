@@ -3,17 +3,14 @@ import { fetchProducts } from "../../store/slices/productSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 
 const ProductList = () => {
-  const dispatch = useAppDispatch(); // Use typed dispatch
-  const { products, loading, error } = useAppSelector(
-    (state) => state.products
-  ); // Use typed selector
+  const dispatch = useAppDispatch();
+  const { products, initialized } = useAppSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+    if (!initialized) {
+      dispatch(fetchProducts());
+    }
+  }, [dispatch, initialized]);
 
   return (
     <div>

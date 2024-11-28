@@ -6,12 +6,14 @@ interface ProductState {
   products: Product[];
   loading: boolean;
   error: string | null;
+  initialized: boolean;
 }
 
 const initialState: ProductState = {
   products: [],
   loading: false,
   error: null,
+  initialized: false,
 };
 
 export const fetchProducts = createAsyncThunk("products/fetchAll", async () => {
@@ -30,6 +32,7 @@ const productSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.loading = false;
         state.products = action.payload;
+        state.initialized = true;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
