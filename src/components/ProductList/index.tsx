@@ -5,13 +5,11 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 const ProductList = () => {
   const dispatch = useAppDispatch();
   const { products, initialized } = useAppSelector((state) => state.products);
-
   useEffect(() => {
     if (!initialized) {
       dispatch(fetchProducts());
     }
   }, [dispatch, initialized]);
-
   return (
     <div>
       {products.map((product) => (
