@@ -12,12 +12,15 @@ const ProductList = () => {
   }, [dispatch, initialized]);
   return (
     <div>
-      {products.map((product) => (
-        <div key={product.id}>
-          <h2>{product.title}</h2>
-          <p>${product.price}</p>
-        </div>
-      ))}
+      {products.map((product) => {
+        return (
+          <div key={product.id}>
+            <h2>{product.title}</h2>
+            <p>${product.price}</p>
+            <img src={product.image.url} alt={product.title} />
+          </div>
+        );
+      })}
     </div>
   );
 };
