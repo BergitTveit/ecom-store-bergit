@@ -1,4 +1,4 @@
-interface ImageUrl{
+interface ImageUrl {
   url: string;
   alt: string;
 }
@@ -8,7 +8,7 @@ export interface Product {
   description: string;
   price: number;
   discountedPrice: number;
-  imageUrl: ImageUrl;
+  image: ImageUrl;
   rating: number;
   tags: string[];
   reviews: Review[];
@@ -25,10 +25,4 @@ export interface ApiResponse<T> {
   data: T;
   status: string;
   message?: string;
-}
-
-
-export interface ProductState {
-  products: Product[];
-  initialized: boolean;
 }
