@@ -2,6 +2,8 @@ interface ImageUrl {
   url: string;
   alt: string;
 }
+
+
 export interface Product {
   id: string;
   title: string;
