@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const CartIcon = () => {
   return (
     <div className="flex items-center flex-none ml-auto pl-4 min-w-[40px] relative right-0 gap-6">
-      <Link to="/cart">
+      <Link to="/checkout">
         <div className="relative cursor-pointer">
           <FontAwesomeIcon
             icon={faShoppingCart}
