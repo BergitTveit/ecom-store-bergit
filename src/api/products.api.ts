@@ -1,4 +1,3 @@
-
 import { api } from "./config";
 import { Product, ApiResponse } from "./api.types";
 
