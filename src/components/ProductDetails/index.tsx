@@ -1,10 +1,11 @@
 import { Product } from "../../api";
+import DiscountBadge from "../UI/Discount";
 
-interface ProductProps {
+interface ProductDetailsProps {
   product: Product;
 }
 
-const ProductDetails = ({ product }: ProductProps) => {
+const ProductDetails = ({ product }: ProductDetailsProps) => {
   return (
     <div className="container mx-auto p-4">
       <div className="grid md:grid-cols-2 gap-8">
@@ -18,12 +19,21 @@ const ProductDetails = ({ product }: ProductProps) => {
         <div>
           <h1 className="text-2xl font-bold mb-4">{product.title}</h1>
           <p className="text-gray-600 mb-4">{product.description}</p>
-          <div className="mb-4">
+          <div className="mt-2">
             {product.price !== product.discountedPrice && (
-              <p className="text-gray-400 line-through">${product.price}</p>
+              <p className="text-gray-400 line-through">
+                ${product.price.toFixed(2)}
+              </p>
             )}
-            <p className="text-2xl font-bold">${product.discountedPrice}</p>
+            <p className="text-xl font-bold">
+              ${product.discountedPrice.toFixed(2)}
+            </p>
+            <DiscountBadge
+              price={product.price}
+              discountedPrice={product.discountedPrice}
+            />
           </div>
+
           <button className="bg-primary text-white px-6 py-2 rounded hover:bg-blue-700">
             Add to Cart
           </button>
