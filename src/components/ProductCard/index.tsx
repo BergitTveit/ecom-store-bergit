@@ -15,7 +15,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <img
           src={product.image.url}
           alt={product.title}
-          className="w-full h-48 object-cover"
+          className="w-full h-48 object-cover cursor-pointer"
         />
       </div>
 
