@@ -1,17 +1,31 @@
+import { useEffect, useState } from "react";
 import ProductList from "../components/ProductList";
-import { useAppSelector } from "../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { fetchProducts } from "../store/slices/productSlice";
+import { filterProductsBySearch } from "../utils/searchFilter";
+import SearchBar from "../components/Searchbar";
 
 const HomePage = () => {
-  const { loading, error, initialized } = useAppSelector(
+  const dispatch = useAppDispatch();
+  const { products, loading, error, initialized } = useAppSelector(
     (state) => state.products
   );
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    if (!initialized) {
+      dispatch(fetchProducts());
+    }
+  }, [dispatch, initialized]);
 
   if (!initialized && loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
+  const filteredProducts = filterProductsBySearch(products, searchTerm);
 
   return (
     <div>
-      <ProductList />
+      <SearchBar onSearch={setSearchTerm} />
+      <ProductList products={filteredProducts} />
     </div>
   );
 };

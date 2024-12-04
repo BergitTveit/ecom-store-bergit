@@ -1,11 +1,38 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../hooks/reduxHooks";
+import { clearCart } from "../store/slices/cartSlice";
 
 const CheckoutSuccessPage = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(clearCart());
+  }, [dispatch]);
+
   return (
-    <div>
-      <h1>Checkout Success!</h1>
-      <p>Thank you for your order</p>
-      <Link to="/">Back to Shop</Link>
+    <div className="container mx-auto p-4">
+      <div className="max-w-md mx-auto mt-10 text-center">
+        <div className="mb-6">
+          <div className="w-16 h-16 bg-green-500 rounded-full mx-auto flex items-center justify-center">
+            <span className="text-white text-2xl">✓</span>
+          </div>
+        </div>
+
+        <h1 className="text-3xl font-bold mb-4">Order Successful!</h1>
+
+        <p className="text-gray-600 mb-8">
+          Thank you for your purchase. Your order has been received and is being
+          processed.
+        </p>
+
+        <Link
+          to="/"
+          className="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Return to Store
+        </Link>
+      </div>
     </div>
   );
 };
