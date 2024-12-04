@@ -1,11 +1,19 @@
 import { Product } from "../../api";
 import DiscountBadge from "../UI/Discount";
+import { addToCart } from "../../store/slices/cartSlice";
+import { useAppDispatch } from "../../hooks/reduxHooks";
 
 interface ProductDetailsProps {
   product: Product;
 }
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
+  const dispatch = useAppDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <div className="container mx-auto p-4">
       <div className="grid md:grid-cols-2 gap-8">
@@ -34,7 +42,10 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             />
           </div>
 
-          <button className="bg-primary text-white px-6 py-2 rounded hover:bg-blue-700">
+          <button
+            onClick={handleAddToCart}
+            className="bg-primary text-white px-6 py-2 rounded hover:bg-blue-700"
+          >
             Add to Cart
           </button>
           {product.reviews.length > 0 && (
