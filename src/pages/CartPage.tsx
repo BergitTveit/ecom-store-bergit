@@ -1,10 +1,36 @@
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../hooks/useCart';
+import ClearCart from '../components/CartClearer';
+import CartItem from '../components/CartItem';
+import CartSummary from '../components/CartSummary';
+
 const CartPage = () => {
-    return (
-      <div>
-        <h1>Cart Page</h1>
-        <p>Your cart items will appear here</p>
+  const navigate = useNavigate();
+  const { cartItems, total, handleQuantityChange, handleRemoveItem } = useCart();
+
+  if (cartItems.length === 0) {
+    return <ClearCart onContinueShopping={() => navigate('/')} />;
+  }
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
+      <div className="space-y-4">
+        {cartItems.map((item) => (
+          <CartItem
+            key={item.product.id}
+            item={item}
+            onQuantityChange={handleQuantityChange}
+            onRemove={handleRemoveItem}
+          />
+        ))}
       </div>
-    );
-  };
-  
-  export default CartPage;
+      <CartSummary 
+        total={total}
+        onCheckout={() => navigate('/checkout')}
+      />
+    </div>
+  );
+};
+
+export default CartPage;
