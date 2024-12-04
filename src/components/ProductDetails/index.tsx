@@ -48,6 +48,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           >
             Add to Cart
           </button>
+    {/* Move buttons to actions?  */}
+
           {product.reviews.length > 0 && (
             <div className="mt-8">
               <h2 className="text-xl font-bold mb-4">Reviews</h2>

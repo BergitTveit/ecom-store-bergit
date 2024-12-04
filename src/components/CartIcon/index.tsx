@@ -16,6 +16,7 @@ const CartIcon = () => {
       <span className="absolute -top-3 -right-6 bg-primary text-white rounded-full px-2 py-0.5 text-xs min-w-4 text-center">
         0
       </span>
+      {/* Create Counter */}
     </div>
   );
 };

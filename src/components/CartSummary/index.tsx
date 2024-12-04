@@ -15,6 +15,7 @@ const CartSummary = ({ total, onCheckout }: CartSummaryProps) => (
     >
       Proceed to Checkout
     </button>
+        {/* Move buttons to actions?  */}
   </div>
 );
 

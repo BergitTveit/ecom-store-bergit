@@ -11,6 +11,7 @@ const ClearCart = ({ onContinueShopping }: ClearCartProps) => (
     >
       Continue Shopping
     </button>
+    {/* Move buttons to actions?  */}
   </div>
 );
 

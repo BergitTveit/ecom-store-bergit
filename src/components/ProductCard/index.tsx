@@ -42,6 +42,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       >
         View Product
       </button>
+          {/* Move buttons to actions?  */}
     </div>
   );
 };
