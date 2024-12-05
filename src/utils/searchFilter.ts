@@ -13,6 +13,5 @@ export const filterProductsBySearch = (
       product.description.toLowerCase().includes(term)
   );
 };
-{
-  /* Add suggestive text to search bar */
-}
+
+/* Add suggestive text to search bar */

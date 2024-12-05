@@ -1,11 +1,11 @@
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useAppSelector } from "../../hooks/reduxHooks";
+// import { useAppSelector } from "../../hooks/reduxHooks";
 
 const CartIcon = () => {
   const navigate = useNavigate();
-  const cartItems = useAppSelector((state) => state.cart.items);
+  // const cartItems = useAppSelector((state) => state.cart.items);
 
   return (
     <div onClick={() => navigate("/cart")} className="relative">

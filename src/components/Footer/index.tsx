@@ -46,19 +46,19 @@ const Footer = () => {
           </p>
           <div className="flex items-center gap-6">
             <a
-              href="#"
+              href="https://www.facebook.com/"
               className="text-black hover:text-primary transition-colors"
             >
               <FontAwesomeIcon icon={faFacebook} className="text-xl" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/"
               className="text-black hover:text-primary transition-colors"
             >
               <FontAwesomeIcon icon={faInstagram} className="text-xl" />
             </a>
             <a
-              href="#"
+              href="https://x.com/"
               className="text-black hover:text-primary transition-colors"
             >
               <FontAwesomeIcon icon={faTwitter} className="text-xl" />
