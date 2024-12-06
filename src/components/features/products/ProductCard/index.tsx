@@ -1,8 +1,7 @@
-import { Product } from "../../../api/api.types";
-import { useNavigate } from "react-router-dom";
-import { DiscountBadge } from "../../UI/Discount";
-import { useProducts } from "../../../hooks/useProducts";
-import { Button } from "../../UI/Button";
+import { Product } from "../../../../api/api.types";
+import { DiscountBadge } from "../../../UI/Discount";
+import { useProducts } from "../../../../hooks/useProducts";
+import { Button } from "../../../UI/Button";
 
 interface ProductCardProps {
   product: Product;
@@ -22,7 +21,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       </div>
 
       <h2 className="text-lg font-bold mt-2">{product.title}</h2>
-
+      {/* Make price Component, and include discountBadge in here */}
       <div className="mt-2">
         {product.price !== product.discountedPrice && (
           <p className="text-gray-400 line-through">
@@ -44,8 +43,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       >
         View Product
       </Button>
-
-      {/* Move buttons to actions?  */}
     </div>
   );
 };

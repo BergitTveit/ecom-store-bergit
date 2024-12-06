@@ -1,4 +1,4 @@
-import { Product } from "../api/api.types";
+import { Product } from "../../../api/api.types";
 
 export interface ICartItem {
   product: Product;

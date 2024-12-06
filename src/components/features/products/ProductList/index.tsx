@@ -1,4 +1,4 @@
-import { Product } from "../../../api";
+import { Product } from "../../../../api";
 import { ProductCard } from "../ProductCard";
 
 interface ProductListProps {

@@ -1,8 +1,8 @@
-import { Product } from "../../../api";
+import { Product } from "../../../../api";
 
-import { DiscountBadge } from "../../UI/Discount";
-import { useProducts } from "../../../hooks/useProducts";
-import { Button } from "../../UI/Button";
+import { DiscountBadge } from "../../../UI/Discount";
+import { useProducts } from "../../../../hooks/useProducts";
+import { Button } from "../../../UI/Button";
 
 interface ProductDetailsProps {
   product: Product;

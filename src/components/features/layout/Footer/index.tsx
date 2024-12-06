@@ -5,7 +5,7 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import logo from "../../../assets/images/logo.png";
+// import logo from "../../../assets/images";
 
 export const Footer = () => {
   return (
@@ -31,7 +31,7 @@ export const Footer = () => {
           </ul>
         </div>
         <div className="flex flex-col items-center text-center gap-4">
-          <div className="flex items-center flex-none">
+          {/* <div className="flex items-center flex-none">
             <Link to="/">
               <img
                 src={logo}
@@ -39,7 +39,7 @@ export const Footer = () => {
                 className="h-[35px] w-auto transition-all duration-300 md:h-[40px] lg:h-[50px]"
               />
             </Link>
-          </div>
+          </div> */}
           <p className="m-0 text-sm leading-relaxed">
             Obsess and possess prides ourselves on delivering you desires
             quickly and smoothly.

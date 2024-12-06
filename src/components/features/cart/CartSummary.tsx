@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useCartActions } from "../../hooks/useCartActions";
-import { Button } from "../UI/Button";
+import { useCartActions } from "../../../hooks/useCartActions";
+import { Button } from "../../UI/Button";
 
 type CartSummaryProps = {
   total: number;
@@ -16,11 +16,7 @@ export const CartSummary = ({ total }: CartSummaryProps) => {
         <span>Total:</span>
         <span>${total.toFixed(2)}</span>
       </div>
-      <Button
-        onClick={() => navigateToCheckout(navigate)}
-        variant="primary"
-        fullWidth
-      >
+      <Button onClick={navigateToCheckout} variant="primary" fullWidth>
         Proceed to Checkout
       </Button>
     </div>

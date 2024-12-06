@@ -27,7 +27,7 @@ const CheckoutSuccessPage = () => {
           processed.
         </p>
 
-        <Button onClick={() => continueShopping(navigate)} variant="primary">
+        <Button onClick={continueShopping} variant="primary">
           Return to Store
         </Button>
       </div>

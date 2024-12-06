@@ -1,5 +1,9 @@
 import { useCart } from "../hooks/useCart";
-import { CartItem, CartSummary, EmptyCartMessage } from "../components/cart";
+import {
+  CartItem,
+  CartSummary,
+  EmptyCartMessage,
+} from "../components/features/cart";
 
 const CartPage = () => {
   const { cartItems, total } = useCart();

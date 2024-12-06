@@ -1,4 +1,4 @@
-import { ICartItem } from "../types/cart.types";
+import { ICartItem } from "../components/features/cart/cart.types";
 
 export const calculateDiscount = (price: number, discountedPrice: number) => {
   if (price === discountedPrice) return null;
