@@ -20,6 +20,7 @@ const HomePage = () => {
 
   if (!initialized && loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
+  
   const filteredProducts = filterProductsBySearch(products, searchTerm);
 
   return (

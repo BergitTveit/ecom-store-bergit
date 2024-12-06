@@ -1,4 +1,4 @@
-import { calculateDiscount } from "../../utils/discountCalculator";
+import { calculateDiscount } from "../../utils/priceCalculators";
 
 interface DiscountBadgeProps {
   price: number;
