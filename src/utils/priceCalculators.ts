@@ -15,3 +15,5 @@ export const calculateCartTotal = (items: ICartItem[]): number => {
     0
   );
 };
+
+//Consider calculator for; Total all item type. Total savings.

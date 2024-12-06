@@ -1,7 +1,7 @@
 import { removeFromCart, updateQuantity } from "../store/slices/cartSlice";
 import { AppDispatch } from "../store/store";
 
-const cartActions = {
+export const cartActions = {
   handleQuantityChange: (
     dispatch: AppDispatch,
     id: string,
@@ -26,6 +26,3 @@ const cartActions = {
     }
   },
 };
-//check bp export syntax
-
-export default cartActions;

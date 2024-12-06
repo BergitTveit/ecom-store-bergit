@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useAppSelector, useAppDispatch } from "./reduxHooks";
 import { removeFromCart, updateQuantity } from "../store/slices/cartSlice";
 import { calculateCartTotal } from "../utils/priceCalculators";
-import cartActions from "../actions/cartActions";
+import { cartActions } from "../actions/cartActions";
 
 export const useCart = () => {
   const dispatch = useAppDispatch();
