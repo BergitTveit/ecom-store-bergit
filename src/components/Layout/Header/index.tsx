@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
+import logo from "../../../assets/images/logo.png";
 import { Navigation } from "../Navigation";
-import { CartIcon } from "../cart/CartIcon";
+import { CartIcon } from "../../cart/CartIcon";
 
 export const Header = (props: { basic?: boolean }) => {
   return (
