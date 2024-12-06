@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../hooks/useCart";
-import {ClearCart} from "../components/CartClearer";
-import { CartItem } from "../components/CartItem";
-import { CartSummary } from "../components/CartSummary";
+import { CartItem, CartSummary, ClearCart } from "../components/cart";
 
 const CartPage = () => {
   const navigate = useNavigate();
