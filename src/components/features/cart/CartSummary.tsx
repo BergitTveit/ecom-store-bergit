@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useCartActions } from "../../../hooks/useCartActions";
 import { Button } from "../../UI/Button";
 
@@ -8,7 +7,6 @@ type CartSummaryProps = {
 
 export const CartSummary = ({ total }: CartSummaryProps) => {
   const { navigateToCheckout } = useCartActions();
-  const navigate = useNavigate();
 
   return (
     <div className="mt-8 border-t pt-4">

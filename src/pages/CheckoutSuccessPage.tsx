@@ -1,11 +1,9 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useCartActions } from "../hooks/useCartActions";
 import { Button } from "../components/UI/Button";
 
 const CheckoutSuccessPage = () => {
   const { clearCart, continueShopping } = useCartActions();
-  const navigate = useNavigate();
 
   useEffect(() => {
     clearCart();
