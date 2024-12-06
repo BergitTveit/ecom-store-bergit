@@ -1,11 +1,11 @@
 import { useCart } from "../hooks/useCart";
-import { CartItem, CartSummary, ClearCart } from "../components/cart";
+import { CartItem, CartSummary, EmptyCartMessage } from "../components/cart";
 
 const CartPage = () => {
   const { cartItems, total } = useCart();
 
   if (cartItems.length === 0) {
-    return <ClearCart />;
+    return <EmptyCartMessage />;
   }
 
   return (

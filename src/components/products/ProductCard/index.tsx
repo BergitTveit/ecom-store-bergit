@@ -1,17 +1,19 @@
-import { Product } from "../../api/api.types";
+import { Product } from "../../../api/api.types";
 import { useNavigate } from "react-router-dom";
-import { DiscountBadge } from "../UI/Discount";
+import { DiscountBadge } from "../../UI/Discount";
+import { useProducts } from "../../../hooks/useProducts";
+import { Button } from "../../UI/Button";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-  const navigate = useNavigate();
-  const handleClick = () => navigate(`/product/${product.id}`);
+  const { handleNavigateToProduct } = useProducts();
+
   return (
     <div className="border rounded-lg p-4 shadow hover:shadow-lg">
-      <div onClick={handleClick}>
+      <div onClick={() => handleNavigateToProduct(product.id)}>
         <img
           src={product.image.url}
           alt={product.title}
@@ -35,13 +37,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           discountedPrice={product.discountedPrice}
         />
       </div>
-
-      <button
-        onClick={handleClick}
-        className="mt-4 bg-primary text-white px-4 py-2 rounded-lg w-full"
+      <Button
+        onClick={() => handleNavigateToProduct(product.id)}
+        variant="primary"
+        fullWidth
       >
         View Product
-      </button>
+      </Button>
+
       {/* Move buttons to actions?  */}
     </div>
   );

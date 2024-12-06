@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProductList from "../components/ProductList";
+import ProductList from "../components/products/ProductList";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { fetchProducts } from "../store/slices/productSlice";
 import { filterProductsBySearch } from "../utils/searchFilter";

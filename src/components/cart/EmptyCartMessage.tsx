@@ -2,7 +2,7 @@ import { useCartActions } from "../../hooks/useCartActions";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../UI/Button";
 
-export const ClearCart = () => {
+export const EmptyCartMessage = () => {
   const { continueShopping } = useCartActions();
   const navigate = useNavigate();
 
