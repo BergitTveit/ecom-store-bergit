@@ -1,14 +1,13 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useAppDispatch } from "../hooks/reduxHooks";
-import { clearCart } from "../store/slices/cartSlice";
+import { useCartActions } from "../hooks/useCartActions";
+import { Button } from "../components/UI/Button";
 
 const CheckoutSuccessPage = () => {
-  const dispatch = useAppDispatch();
+  const { clearCart, continueShopping } = useCartActions();
 
   useEffect(() => {
-    dispatch(clearCart());
-  }, [dispatch]);
+    clearCart();
+  }, [clearCart]);
 
   return (
     <div className="container mx-auto p-4">
@@ -26,12 +25,9 @@ const CheckoutSuccessPage = () => {
           processed.
         </p>
 
-        <Link
-          to="/"
-          className="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-        >
+        <Button onClick={continueShopping} variant="primary">
           Return to Store
-        </Link>
+        </Button>
       </div>
     </div>
   );

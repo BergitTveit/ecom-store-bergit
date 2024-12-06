@@ -1,23 +1,25 @@
 import { useCallback } from "react";
 import { useAppSelector, useAppDispatch } from "./reduxHooks";
 import { removeFromCart, updateQuantity } from "../store/slices/cartSlice";
+import { calculateCartTotal } from "../utils/priceCalculators";
 
 export const useCart = () => {
   const dispatch = useAppDispatch();
-  const cartItems = useAppSelector((state) => state.cart.items);
 
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.product.discountedPrice * item.quantity,
-    0
-  );
-  //Move to utils.
+  const cartItems = useAppSelector((state) => state.cart.items);
+  const total = calculateCartTotal(cartItems);
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const handleQuantityChange = useCallback(
     (id: string, quantity: number) => {
-      if (quantity < 1) {
-        dispatch(removeFromCart(id));
-      } else {
-        dispatch(updateQuantity({ id, quantity }));
+      try {
+        if (quantity < 1) {
+          dispatch(removeFromCart(id));
+        } else {
+          dispatch(updateQuantity({ id, quantity }));
+        }
+      } catch (error) {
+        console.error("Error updating quantity:", error);
       }
     },
     [dispatch]
@@ -25,7 +27,11 @@ export const useCart = () => {
 
   const handleRemoveItem = useCallback(
     (id: string) => {
-      dispatch(removeFromCart(id));
+      try {
+        dispatch(removeFromCart(id));
+      } catch (error) {
+        console.error("Error removing item:", error);
+      }
     },
     [dispatch]
   );
@@ -33,9 +39,8 @@ export const useCart = () => {
   return {
     cartItems,
     total,
+    itemCount,
     handleQuantityChange,
     handleRemoveItem,
   };
 };
-
-export {};

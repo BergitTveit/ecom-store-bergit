@@ -2,7 +2,7 @@ interface SearchBarProps {
     onSearch: (searchTerm: string) => void;
   }
   
-  const SearchBar = ({ onSearch }: SearchBarProps) => {
+  export const SearchBar = ({ onSearch }: SearchBarProps) => {
     return (
       <div className="mb-4">
         <input
@@ -15,4 +15,3 @@ interface SearchBarProps {
     );
   };
   
-  export default SearchBar;

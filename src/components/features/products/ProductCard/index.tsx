@@ -1,17 +1,18 @@
-import { Product } from "../../api/api.types";
-import { useNavigate } from "react-router-dom";
-import DiscountBadge from "../UI/Discount";
+import { Product } from "../../../../api/api.types";
+import { DiscountBadge } from "../../../UI/Discount";
+import { useProducts } from "../../../../hooks/useProducts";
+import { Button } from "../../../UI/Button";
 
 interface ProductCardProps {
   product: Product;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
-  const navigate = useNavigate();
-  const handleClick = () => navigate(`/product/${product.id}`);
+export const ProductCard = ({ product }: ProductCardProps) => {
+  const { handleNavigateToProduct } = useProducts();
+
   return (
     <div className="border rounded-lg p-4 shadow hover:shadow-lg">
-      <div onClick={handleClick}>
+      <div onClick={() => handleNavigateToProduct(product.id)}>
         <img
           src={product.image.url}
           alt={product.title}
@@ -20,7 +21,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </div>
 
       <h2 className="text-lg font-bold mt-2">{product.title}</h2>
-
+      {/* Make price Component, and include discountBadge in here */}
       <div className="mt-2">
         {product.price !== product.discountedPrice && (
           <p className="text-gray-400 line-through">
@@ -35,16 +36,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
           discountedPrice={product.discountedPrice}
         />
       </div>
-
-      <button
-        onClick={handleClick}
-        className="mt-4 bg-primary text-white px-4 py-2 rounded-lg w-full"
+      <Button
+        onClick={() => handleNavigateToProduct(product.id)}
+        variant="primary"
+        fullWidth
       >
         View Product
-      </button>
-          {/* Move buttons to actions?  */}
+      </Button>
     </div>
   );
 };
-
-export default ProductCard;

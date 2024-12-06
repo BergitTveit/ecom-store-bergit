@@ -3,7 +3,7 @@ type QuantityControlsProps = {
     onQuantityChange: (quantity: number) => void;
   };
   
-  const QuantityControls = ({ quantity, onQuantityChange }: QuantityControlsProps) => (
+  export const QuantityControls = ({ quantity, onQuantityChange }: QuantityControlsProps) => (
     <div className="flex items-center space-x-2">
       <button
         onClick={() => onQuantityChange(quantity - 1)}
@@ -21,4 +21,3 @@ type QuantityControlsProps = {
     </div>
   );
 
-  export default QuantityControls;

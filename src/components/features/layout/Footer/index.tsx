@@ -5,9 +5,9 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import logo from "../../assets/images/logo.png";
+// import logo from "../../../assets/images";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="w-full bg-secondary py-8 mt-auto">
       <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-8 lg:px-16">
@@ -31,7 +31,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="flex flex-col items-center text-center gap-4">
-          <div className="flex items-center flex-none">
+          {/* <div className="flex items-center flex-none">
             <Link to="/">
               <img
                 src={logo}
@@ -39,7 +39,7 @@ const Footer = () => {
                 className="h-[35px] w-auto transition-all duration-300 md:h-[40px] lg:h-[50px]"
               />
             </Link>
-          </div>
+          </div> */}
           <p className="m-0 text-sm leading-relaxed">
             Obsess and possess prides ourselves on delivering you desires
             quickly and smoothly.
@@ -90,5 +90,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

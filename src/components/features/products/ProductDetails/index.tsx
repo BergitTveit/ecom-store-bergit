@@ -1,18 +1,15 @@
-import { Product } from "../../api";
-import DiscountBadge from "../UI/Discount";
-import { addToCart } from "../../store/slices/cartSlice";
-import { useAppDispatch } from "../../hooks/reduxHooks";
+import { Product } from "../../../../api";
+
+import { DiscountBadge } from "../../../UI/Discount";
+import { useProducts } from "../../../../hooks/useProducts";
+import { Button } from "../../../UI/Button";
 
 interface ProductDetailsProps {
   product: Product;
 }
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
-  const dispatch = useAppDispatch();
-
-  const handleAddToCart = () => {
-    dispatch(addToCart(product));
-  };
+  const { handleAddToCart } = useProducts();
 
   return (
     <div className="container mx-auto p-4">
@@ -42,14 +39,10 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             />
           </div>
 
-          <button
-            onClick={handleAddToCart}
-            className="bg-primary text-white px-6 py-2 rounded hover:bg-blue-700"
-          >
+          <Button onClick={() => handleAddToCart(product)} variant="primary">
             Add to Cart
-          </button>
-    {/* Move buttons to actions?  */}
-
+          </Button>
+          {/* Make review component */}
           {product.reviews.length > 0 && (
             <div className="mt-8">
               <h2 className="text-xl font-bold mb-4">Reviews</h2>

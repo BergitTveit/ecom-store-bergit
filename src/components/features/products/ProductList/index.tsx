@@ -1,5 +1,5 @@
-import { Product } from "../../api";
-import ProductCard from "../ProductCard";
+import { Product } from "../../../../api";
+import { ProductCard } from "../ProductCard";
 
 interface ProductListProps {
   products: Product[];

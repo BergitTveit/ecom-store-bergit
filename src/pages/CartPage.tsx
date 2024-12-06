@@ -1,15 +1,15 @@
-import { useNavigate } from 'react-router-dom';
-import { useCart } from '../hooks/useCart';
-import ClearCart from '../components/CartClearer';
-import CartItem from '../components/CartItem';
-import CartSummary from '../components/CartSummary';
+import { useCart } from "../hooks/useCart";
+import {
+  CartItem,
+  CartSummary,
+  EmptyCartMessage,
+} from "../components/features/cart";
 
 const CartPage = () => {
-  const navigate = useNavigate();
-  const { cartItems, total, handleQuantityChange, handleRemoveItem } = useCart();
+  const { cartItems, total } = useCart();
 
   if (cartItems.length === 0) {
-    return <ClearCart onContinueShopping={() => navigate('/')} />;
+    return <EmptyCartMessage />;
   }
 
   return (
@@ -17,18 +17,10 @@ const CartPage = () => {
       <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
       <div className="space-y-4">
         {cartItems.map((item) => (
-          <CartItem
-            key={item.product.id}
-            item={item}
-            onQuantityChange={handleQuantityChange}
-            onRemove={handleRemoveItem}
-          />
+          <CartItem key={item.product.id} item={item} />
         ))}
       </div>
-      <CartSummary 
-        total={total}
-        onCheckout={() => navigate('/checkout')}
-      />
+      <CartSummary total={total} />
     </div>
   );
 };
