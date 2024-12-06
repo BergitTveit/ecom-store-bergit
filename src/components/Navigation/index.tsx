@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faHome } from "@fortawesome/free-solid-svg-icons";
 
-const Navigation = () => {
+export const Navigation = () => {
   return (
     <nav className="flex-1 hidden md:flex md:items-center md:justify-center md:mx-8">
       <ul className="flex items-center list-none gap-8 m-0 p-0">
@@ -26,8 +26,6 @@ const Navigation = () => {
     </nav>
   );
 };
-
-export default Navigation;
 
 //Most Frequent Tags - for NAV later.
 

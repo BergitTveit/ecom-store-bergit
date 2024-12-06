@@ -2,7 +2,7 @@ type ClearCartProps = {
   onContinueShopping: () => void;
 };
 
-const ClearCart = ({ onContinueShopping }: ClearCartProps) => (
+export const ClearCart = ({ onContinueShopping }: ClearCartProps) => (
   <div className="container mx-auto p-4 text-center">
     <h1 className="text-2xl font-bold mb-4">Your Cart is Empty</h1>
     <button
@@ -14,5 +14,3 @@ const ClearCart = ({ onContinueShopping }: ClearCartProps) => (
     {/* Move buttons to actions?  */}
   </div>
 );
-
-export default ClearCart;

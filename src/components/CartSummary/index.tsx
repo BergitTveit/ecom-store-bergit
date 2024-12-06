@@ -3,7 +3,7 @@ type CartSummaryProps = {
   onCheckout: () => void;
 };
 
-const CartSummary = ({ total, onCheckout }: CartSummaryProps) => (
+export const CartSummary = ({ total, onCheckout }: CartSummaryProps) => (
   <div className="mt-8 border-t pt-4">
     <div className="flex justify-between items-center text-xl font-bold">
       <span>Total:</span>
@@ -19,4 +19,4 @@ const CartSummary = ({ total, onCheckout }: CartSummaryProps) => (
   </div>
 );
 
-export default CartSummary;
+

@@ -1,12 +1,12 @@
 import { Product } from "../../api/api.types";
 import { useNavigate } from "react-router-dom";
-import DiscountBadge from "../UI/Discount";
+import { DiscountBadge } from "../UI/Discount";
 
 interface ProductCardProps {
   product: Product;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+export const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
   const handleClick = () => navigate(`/product/${product.id}`);
   return (
@@ -42,9 +42,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       >
         View Product
       </button>
-          {/* Move buttons to actions?  */}
+      {/* Move buttons to actions?  */}
     </div>
   );
 };
-
-export default ProductCard;

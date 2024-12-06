@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import logo from "../../assets/images/logo.png";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="w-full bg-secondary py-8 mt-auto">
       <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-8 lg:px-16">
@@ -90,5 +90,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

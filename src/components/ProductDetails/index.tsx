@@ -1,7 +1,8 @@
 import { Product } from "../../api";
-import DiscountBadge from "../UI/Discount";
+
 import { addToCart } from "../../store/slices/cartSlice";
 import { useAppDispatch } from "../../hooks/reduxHooks";
+import { DiscountBadge } from "../UI/Discount";
 
 interface ProductDetailsProps {
   product: Product;
@@ -48,7 +49,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           >
             Add to Cart
           </button>
-    {/* Move buttons to actions?  */}
+          {/* Move buttons to actions?  */}
 
           {product.reviews.length > 0 && (
             <div className="mt-8">

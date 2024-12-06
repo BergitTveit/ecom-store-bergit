@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { useAppSelector } from "../../hooks/reduxHooks";
 
-const CartIcon = () => {
+export const CartIcon = () => {
   const navigate = useNavigate();
   // const cartItems = useAppSelector((state) => state.cart.items);
 
@@ -20,5 +20,3 @@ const CartIcon = () => {
     </div>
   );
 };
-
-export default CartIcon;

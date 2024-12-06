@@ -1,6 +1,6 @@
 import React from "react";
 import { ICartItem } from "../../types/cart.types";
-import QuantityControls from "../UI/QuantityControls";
+import { QuantityControls } from "../UI/QuantityControls";
 
 type CartItemProps = {
   item: ICartItem;
@@ -8,7 +8,7 @@ type CartItemProps = {
   onRemove: (id: string) => void;
 };
 
-const CartItem = ({
+export const CartItem = ({
   item: { product, quantity },
   onQuantityChange,
   onRemove,
@@ -42,5 +42,3 @@ const CartItem = ({
     </div>
   </div>
 );
-
-export default CartItem;

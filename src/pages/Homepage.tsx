@@ -3,7 +3,7 @@ import ProductList from "../components/ProductList";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { fetchProducts } from "../store/slices/productSlice";
 import { filterProductsBySearch } from "../utils/searchFilter";
-import SearchBar from "../components/Searchbar";
+import {SearchBar} from "../components/Searchbar";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ const HomePage = () => {
 
   if (!initialized && loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
-  
+
   const filteredProducts = filterProductsBySearch(products, searchTerm);
 
   return (

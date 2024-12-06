@@ -11,4 +11,3 @@ export const productsApi = {
     return response.data.data;
   },
 };
-//move to hook

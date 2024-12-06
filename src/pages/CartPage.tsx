@@ -1,15 +1,16 @@
-import { useNavigate } from 'react-router-dom';
-import { useCart } from '../hooks/useCart';
-import ClearCart from '../components/CartClearer';
-import CartItem from '../components/CartItem';
-import CartSummary from '../components/CartSummary';
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../hooks/useCart";
+import {ClearCart} from "../components/CartClearer";
+import { CartItem } from "../components/CartItem";
+import { CartSummary } from "../components/CartSummary";
 
 const CartPage = () => {
   const navigate = useNavigate();
-  const { cartItems, total, handleQuantityChange, handleRemoveItem } = useCart();
+  const { cartItems, total, handleQuantityChange, handleRemoveItem } =
+    useCart();
 
   if (cartItems.length === 0) {
-    return <ClearCart onContinueShopping={() => navigate('/')} />;
+    return <ClearCart onContinueShopping={() => navigate("/")} />;
   }
 
   return (
@@ -25,10 +26,7 @@ const CartPage = () => {
           />
         ))}
       </div>
-      <CartSummary 
-        total={total}
-        onCheckout={() => navigate('/checkout')}
-      />
+      <CartSummary total={total} onCheckout={() => navigate("/checkout")} />
     </div>
   );
 };
