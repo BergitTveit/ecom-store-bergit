@@ -1,18 +1,40 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { IFormInput } from "./form.types";
+import { IContactFormInput } from "./form.types";
 import { schema } from "./form.schema";
+import * as yup from "yup";
+import { FormInput } from "../../../UI/FormInput";
 
-const MyForm = () => {
+const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
-  } = useForm<IFormInput>({
+  } = useForm<IContactFormInput>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+  const watchFields = watch();
+
+  const getMinLength = (field: keyof typeof schema.fields): number => {
+    const fieldSchema = schema.fields[field] as yup.StringSchema;
+
+    const minTest = fieldSchema
+      .describe()
+      .tests?.find((test) => test.name === "min");
+    return (minTest?.params?.min as number) || 0;
+  };
+
+  const getCharactersRemaining = (
+    field: keyof typeof schema.fields
+  ): number => {
+    const minLength = getMinLength(field);
+    const currentLength = (watchFields[field] as string)?.length || 0;
+    return minLength - currentLength;
+  };
+
+  const onSubmit: SubmitHandler<IContactFormInput> = (data) => {
     console.log(data);
   };
 
@@ -21,62 +43,55 @@ const MyForm = () => {
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1>Contact Us</h1>
-          <div>
-            <label htmlFor="fullName">Full Name</label>
-            <div>
-              {" "}
-              <input
-                id="fullName"
-                {...register("fullName")}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
-              />
-            </div>
-            {errors.fullName && <p>{errors.fullName.message}</p>}
-          </div>
 
-          <div>
-            <label htmlFor="subject">Subject</label>
-            <div>
-              <input
-                id="subject"
-                {...register("subject")}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
-              />
-            </div>{" "}
-            {errors.subject && <p>{errors.subject.message}</p>}
-          </div>
+          <FormInput
+            label="Full Name"
+            id="fullName"
+            register={register("fullName")}
+            error={errors.fullName?.message}
+            watchValue={watchFields.fullName}
+            charactersRemaining={getCharactersRemaining("fullName")}
+            type="text"
+          />
 
-          <div>
-            <label htmlFor="email">Email</label>
-            <div>
-              {" "}
-              <input
-                id="email"
-                {...register("email")}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
-              />
-            </div>{" "}
-            {errors.email && <p>{errors.email.message}</p>}
-          </div>
+          <FormInput
+            label="Email"
+            id="email"
+            register={register("email")}
+            error={errors.email?.message}
+            watchValue={watchFields.email}
+            type="email"
+          />
+          <FormInput
+            label="Subject"
+            id="subject"
+            register={register("subject")}
+            error={errors.subject?.message}
+            watchValue={watchFields.subject}
+            charactersRemaining={getCharactersRemaining("subject")}
+            type="textarea"
+          />
 
-          <div>
-            <label htmlFor="body">Last Name</label>
-            <div>
-              {" "}
-              <input
-                id="body"
-                {...register("body")}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none"
-              />
-            </div>{" "}
-            {errors.body && <p>{errors.body.message}</p>}
-          </div>
+          <FormInput
+            label="Message"
+            id="body"
+            register={register("body")}
+            error={errors.body?.message}
+            watchValue={watchFields.body}
+            charactersRemaining={getCharactersRemaining("body")}
+            type="textarea"
+          />
 
-          <button type="submit">Submit</button>
+          <button
+            type="submit"
+            className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
   );
 };
 
-export default MyForm;
+export default ContactForm;
