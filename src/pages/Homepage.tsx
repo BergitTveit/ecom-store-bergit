@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ProductList from "../components/features/products/ProductList";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { fetchProducts } from "../store/slices/productSlice";
-import { filterProductsBySearch } from "../utils/searchFilter";
+import { filterProductsBySearch } from "../utils/searchFilters";
 import { SearchBar } from "../components/features/search/Searchbar";
 
 const HomePage = () => {
@@ -25,7 +25,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <SearchBar onSearch={setSearchTerm} />
+      <SearchBar onSearch={setSearchTerm} products={products} />
       <ProductList products={filteredProducts} />
     </div>
   );

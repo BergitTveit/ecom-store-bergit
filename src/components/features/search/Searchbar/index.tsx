@@ -1,17 +1,54 @@
+import { useState } from "react";
+import { Product } from "../../../../api";
+import { getSearchProductSuggestions } from "../../../../utils/searchFilters";
+
 interface SearchBarProps {
-    onSearch: (searchTerm: string) => void;
-  }
-  
-  export const SearchBar = ({ onSearch }: SearchBarProps) => {
-    return (
-      <div className="mb-4">
-        <input
-          type="text"
-          placeholder="Search products..."
-          onChange={(e) => onSearch(e.target.value)}
-          className="w-full max-w-md px-4 py-2 border rounded-lg"
-        />
-      </div>
-    );
+  onSearch: (searchTerm: string) => void;
+  products: Product[];
+}
+
+export const SearchBar = ({ onSearch, products }: SearchBarProps) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const handleChange = (term: string) => {
+    setSearchTerm(term);
+    onSearch(term);
+    const newSuggestions = getSearchProductSuggestions(products, term);
+    setSuggestions(newSuggestions);
+    setShowSuggestions(true);
   };
-  
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setSearchTerm(suggestion);
+    onSearch(suggestion);
+    setShowSuggestions(false);
+  };
+
+  return (
+    <div className="relative mb-4">
+      <input
+        type="text"
+        value={searchTerm}
+        placeholder="Search products..."
+        onChange={(e) => handleChange(e.target.value)}
+        onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+        className="w-full max-w-md px-4 py-2 border rounded-lg"
+      />
+      {showSuggestions && suggestions.length > 0 && (
+        <ul className="absolute w-full max-w-md mt-1 bg-white border rounded-lg shadow-lg z-10">
+          {suggestions.map((suggestion) => (
+            <li
+              key={suggestion}
+              onClick={() => handleSuggestionClick(suggestion)}
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            >
+              {suggestion}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
