@@ -1,4 +1,4 @@
-export interface IFormInput {
+export interface IContactFormInput {
   fullName: string;
   subject: string;
   email: string;
