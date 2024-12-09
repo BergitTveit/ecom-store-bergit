@@ -1,5 +1,5 @@
 import { Product } from "../../../../api/api.types";
-import { DiscountBadge } from "../../../UI/Discount";
+import PriceComponent, { DiscountBadge } from "../../../UI/PriceComponents";
 import { useProducts } from "../../../../hooks/useProducts";
 import { Button } from "../../../UI/Button";
 
@@ -21,19 +21,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       </div>
 
       <h2 className="text-lg font-bold mt-2">{product.title}</h2>
-      {/* Make price Component, and include discountBadge in here */}
+
       <div className="mt-2">
-        {product.price !== product.discountedPrice && (
-          <p className="text-gray-400 line-through">
-            ${product.price.toFixed(2)}
-          </p>
-        )}
-        <p className="text-xl font-bold">
-          ${product.discountedPrice.toFixed(2)}
-        </p>
-        <DiscountBadge
+        <PriceComponent
           price={product.price}
           discountedPrice={product.discountedPrice}
+          showDiscountBadge={true}
+          showOriginalPrice={true}
         />
       </div>
       <Button

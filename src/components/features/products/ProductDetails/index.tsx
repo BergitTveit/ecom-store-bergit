@@ -1,6 +1,6 @@
 import { Product } from "../../../../api";
 
-import { DiscountBadge } from "../../../UI/Discount";
+import PriceComponent from "../../../UI/PriceComponents";
 import { useProducts } from "../../../../hooks/useProducts";
 import { Button } from "../../../UI/Button";
 
@@ -25,20 +25,13 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           <h1 className="text-2xl font-bold mb-4">{product.title}</h1>
           <p className="text-gray-600 mb-4">{product.description}</p>
           <div className="mt-2">
-            {product.price !== product.discountedPrice && (
-              <p className="text-gray-400 line-through">
-                ${product.price.toFixed(2)}
-              </p>
-            )}
-            <p className="text-xl font-bold">
-              ${product.discountedPrice.toFixed(2)}
-            </p>
-            <DiscountBadge
+            <PriceComponent
               price={product.price}
               discountedPrice={product.discountedPrice}
+              showDiscountBadge={true}
+              showOriginalPrice={false}
             />
           </div>
-
           <Button onClick={() => handleAddToCart(product)} variant="primary">
             Add to Cart
           </Button>
