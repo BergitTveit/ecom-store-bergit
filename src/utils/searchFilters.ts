@@ -7,6 +7,7 @@ export const filterProductsBySearch = (
   if (!searchTerm) return products;
 
   const term = searchTerm.toLowerCase();
+  
   return products.filter(
     (product) =>
       product.title.toLowerCase().includes(term) ||
@@ -14,4 +15,16 @@ export const filterProductsBySearch = (
   );
 };
 
-/* Add suggestive text to search bar */
+export const getSearchProductSuggestions = (
+  products: Product[],
+  searchTerm: string,
+  maxSuggestions = 5
+): string[] => {
+  if (!searchTerm) return [];
+  const term = searchTerm.toLowerCase();
+  
+  return products
+    .filter(p => p.title.toLowerCase().includes(term))
+    .map(p => p.title)
+    .slice(0, maxSuggestions);
+};
