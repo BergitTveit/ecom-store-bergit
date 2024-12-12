@@ -27,15 +27,20 @@ export const SearchBar = ({ onSearch, products }: SearchBarProps) => {
   };
 
   return (
-    <div className="relative mb-4">
+    <div className="flex justify-center  m-4">
       <input
         type="text"
         value={searchTerm}
         placeholder="Search products..."
         onChange={(e) => handleChange(e.target.value)}
         onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-        className="w-full max-w-md px-4 py-2 border rounded-lg"
+        className="w-full max-w-md  px-4 py-2 border rounded-lg"
+        aria-label="Search products"
+        aria-expanded={showSuggestions}
+        aria-controls="search-suggestions"
+        aria-describedby="search-description"
       />
+
       {showSuggestions && suggestions.length > 0 && (
         <ul className="absolute w-full max-w-md mt-1 bg-white border rounded-lg shadow-lg z-10">
           {suggestions.map((suggestion) => (
