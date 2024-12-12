@@ -11,8 +11,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const { handleNavigateToProduct } = useProducts();
 
   return (
-    <div className="border rounded-lg p-4 shadow hover:shadow-lg">
-      <div onClick={() => handleNavigateToProduct(product.id)}>
+    <div className="border rounded-lg p-4 shadow hover:shadow-lg flex flex-col h-[420px]">
+      <div onClick={() => handleNavigateToProduct(product.id)} className="h-48">
         <img
           src={product.image.url}
           alt={product.title}
@@ -20,23 +20,30 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         />
       </div>
 
-      <h2 className="text-lg font-bold mt-2">{product.title}</h2>
-
-      <div className="mt-2">
-        <PriceComponent
-          price={product.price}
-          discountedPrice={product.discountedPrice}
-          showDiscountBadge={true}
-          showOriginalPrice={true}
-        />
+      <div className="flex flex-col h-full">
+        <div>
+          <h2 className="text-lg font-bold line-clamp-2 min-h-[3.5rem]">
+            {product.title}
+          </h2>
+          <div className="min-h-[4.5rem]">
+            <PriceComponent
+              price={product.price}
+              discountedPrice={product.discountedPrice}
+              showDiscountBadge={true}
+              showOriginalPrice={true}
+            />
+          </div>
+        </div>
+        <div className="mt-auto">
+          <Button
+            onClick={() => handleNavigateToProduct(product.id)}
+            variant="primary"
+            fullWidth
+          >
+            View Product
+          </Button>
+        </div>
       </div>
-      <Button
-        onClick={() => handleNavigateToProduct(product.id)}
-        variant="primary"
-        fullWidth
-      >
-        View Product
-      </Button>
     </div>
   );
 };
