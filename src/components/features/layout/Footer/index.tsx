@@ -8,10 +8,10 @@ import {
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-secondary py-8 mt-auto">
+    <footer className="w-full bg-secondary py-8 mt-auto shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
       <div className="container-width container-padding">
         <div className="flex justify-center mb-8">
-          <ul className="list-none p-0 m-0 flex flex-col gap-2">
+          <ul className="list-none p-0 m-0 flex gap-6">
             {[
               { to: "/", text: "About" },
               { to: "/contact", text: "Contact" },
@@ -29,14 +29,14 @@ export const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid gap-8">
           {" "}
-          <div className="flex flex-col items-center text-center gap-4">
+          <div className="flex flex-col items-center text-center gap-5">
             <p className="m-0 text-sm leading-relaxed">
               Obsess and possess prides ourselves on delivering you desires
               quickly and smoothly.
             </p>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-10">
               <a
                 href="https://www.facebook.com/"
                 className="text-black hover:text-primary transition-colors"
@@ -56,13 +56,12 @@ export const Footer = () => {
                 <FontAwesomeIcon icon={faTwitter} className="text-xl" />
               </a>
             </div>
-          </div>
-          <div className="flex flex-col items-center text-center">
+
             <h4 className="text-lg text-black mb-2">Contact Info</h4>
-            <ul className="list-none p-0 m-0 flex flex-col gap-2">
+            <ul className="list-none p-0 m-0 flex flex-col gap-1">
               {[
                 { text: "obsess@possess.ts" },
-                { text: "(0047) 909 09 909" },
+                { text: "(0047) 123 45 678" },
                 { text: "123 Possessed Street, Obsess" },
               ].map((item, index) => (
                 <li key={index} className="text-sm">

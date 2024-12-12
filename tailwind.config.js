@@ -6,8 +6,8 @@ module.exports = {
     extend: {
       colors: {
         primary: "#075985",
-        secondary: "",
-        black: "#333333",
+        secondary: "#fff",
+        accent: "#333333",
         hover: "#fe3a64",
         blueForest: "#207178",
         error: "#b91c1c",
