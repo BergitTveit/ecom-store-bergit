@@ -1,5 +1,5 @@
 import { Product } from "../../../../api/api.types";
-import PriceComponent, { DiscountBadge } from "../../../UI/PriceComponents";
+import PriceComponent from "../../../UI/PriceComponents";
 import { useProducts } from "../../../../hooks/useProducts";
 import { Button } from "../../../UI/Button";
 
