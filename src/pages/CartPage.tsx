@@ -13,15 +13,15 @@ const CartPage = () => {
   }
 
   return (
-    <main className="container mx-auto p-4">
+    <section className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
-      <section className="space-y-4">
+      <div className="space-y-4">
         {cartItems.map((item) => (
           <CartItem key={item.product.id} item={item} />
         ))}
-      </section>
+      </div>
       <CartSummary total={total} />
-    </main>
+    </section>
   );
 };
 

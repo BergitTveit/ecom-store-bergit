@@ -5,6 +5,7 @@ import { schema } from "./form.schema";
 import * as yup from "yup";
 import { FormInput } from "../../../UI/FormInput";
 import { useState } from "react";
+import { Button } from "../../../UI/Button";
 
 const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -48,16 +49,16 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
+    <section className="container mx-auto p-4">
+      <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-6 sm:p-8">
         {isSubmitted && (
-          <div className="mb-4 p-4 text-primary rounded-md">
+          <div className="mb-6 p-4 bg-green-50 text-primary rounded-md">
             Thank you! Your message has been sent successfully.
           </div>
         )}
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h1 className="font-bold mb-5">Contact Us</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <h1 className="text-2xl font-bold text-gray-900">Contact Us</h1>
 
           <FormInput
             label="Full Name"
@@ -66,7 +67,7 @@ const ContactForm = () => {
             error={errors.fullName?.message}
             watchValue={watchFields.fullName}
             charactersRemaining={getCharactersRemaining("fullName")}
-            type="text"
+            placeholder="Your full name"
           />
 
           <FormInput
@@ -76,7 +77,9 @@ const ContactForm = () => {
             error={errors.email?.message}
             watchValue={watchFields.email}
             type="email"
+            placeholder="your.email@example.com"
           />
+
           <FormInput
             label="Subject"
             id="subject"
@@ -84,7 +87,7 @@ const ContactForm = () => {
             error={errors.subject?.message}
             watchValue={watchFields.subject}
             charactersRemaining={getCharactersRemaining("subject")}
-            type="textarea"
+            placeholder="What is your message about?"
           />
 
           <FormInput
@@ -95,17 +98,15 @@ const ContactForm = () => {
             watchValue={watchFields.body}
             charactersRemaining={getCharactersRemaining("body")}
             type="textarea"
+            placeholder="Your message here..."
           />
 
-          <button
-            type="submit"
-            className="mt-4 w-full bg-primary text-white py-2 px-4 rounded hover:bg-accent focus:primary uppercase tracking-widest"
-          >
+          <Button type="submit" variant="primary" fullWidth>
             Submit
-          </button>
+          </Button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

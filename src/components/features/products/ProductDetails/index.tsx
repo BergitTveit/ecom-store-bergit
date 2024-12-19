@@ -11,7 +11,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
   const { handleAddToCart } = useProducts();
 
   return (
-    <main className="container mx-auto p-4">
+    <section className="container mx-auto p-4">
       <article className="flex flex-col md:grid md:grid-cols-2 md:gap-8 items-center md:items-start">
         <div className="max-w-md w-full rounded-lg">
           <img
@@ -22,10 +22,8 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
         </div>
 
         <div className="max-w-md w-full space-y-4 mt-4 md:mt-0">
-          <div>
-            <h1 className="text-2xl font-bold">{product.title}</h1>
-            <p className="text-gray-600 mt-2">{product.description}</p>
-          </div>
+          <h1 className="text-2xl font-bold">{product.title}</h1>
+          <p className="text-gray-600">{product.description}</p>
 
           <PriceComponent
             price={product.price}
@@ -55,6 +53,6 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
           )}
         </div>
       </article>
-    </main>
+    </section>
   );
 };

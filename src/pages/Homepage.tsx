@@ -24,10 +24,10 @@ const HomePage = () => {
   const filteredProducts = filterProductsBySearch(products, searchTerm);
 
   return (
-    <main className="container mx-auto">
+    <section>
       <SearchBar onSearch={setSearchTerm} products={products} />
       <ProductList products={filteredProducts} />
-    </main>
+    </section>
   );
 };
 
