@@ -9,7 +9,7 @@ export const CartSummary = ({ total }: CartSummaryProps) => {
   const { navigateToCheckout } = useCartActions();
 
   return (
-    <div className="mt-8">
+    <section className="mt-8">
       <div className="flex justify-between items-center text-xl font-bold mb-4">
         <span>Total:</span>
         <span>${total.toFixed(2)}</span>
@@ -17,6 +17,6 @@ export const CartSummary = ({ total }: CartSummaryProps) => {
       <Button onClick={navigateToCheckout} variant="primary" fullWidth>
         Proceed to Checkout
       </Button>
-    </div>
+    </section>
   );
 };

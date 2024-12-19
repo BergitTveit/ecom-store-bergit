@@ -28,8 +28,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             <PriceComponent
               price={product.price}
               discountedPrice={product.discountedPrice}
-              showDiscountBadge={true}
-              showOriginalPrice={false}
+              showDiscountBadge
+              showOriginalPrice
             />
           </div>
           <Button onClick={() => handleAddToCart(product)} variant="primary">
