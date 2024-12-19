@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useCartActions } from "../hooks/useCartActions";
 import { Button } from "../components/UI/Button";
 
-const CheckoutSuccessPage = () => {
+export const CheckoutSuccessPage = () => {
   const { clearCart, continueShopping } = useCartActions();
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const CheckoutSuccessPage = () => {
   }, [clearCart]);
 
   return (
-    <div className="container mx-auto p-4">
+    <section className="container mx-auto p-4">
       <div className="max-w-md mx-auto mt-10 text-center">
         <div className="mb-6">
           <div className="w-16 h-16 bg-green-500 rounded-full mx-auto flex items-center justify-center">
@@ -29,7 +29,7 @@ const CheckoutSuccessPage = () => {
           Return to Store
         </Button>
       </div>
-    </div>
+    </section>
   );
 };
 

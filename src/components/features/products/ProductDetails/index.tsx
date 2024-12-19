@@ -7,51 +7,52 @@ import { Button } from "../../../UI/Button";
 interface ProductDetailsProps {
   product: Product;
 }
-
-const ProductDetails = ({ product }: ProductDetailsProps) => {
+export const ProductDetails = ({ product }: ProductDetailsProps) => {
   const { handleAddToCart } = useProducts();
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="grid md:grid-cols-2 gap-8">
-        <div>
+    <section className="container mx-auto p-4">
+      <article className="flex flex-col md:grid md:grid-cols-2 md:gap-8 items-center md:items-start">
+        <div className="max-w-md w-full rounded-lg">
           <img
             src={product.image.url}
             alt={product.image.alt}
-            className="w-full rounded-lg"
+            className="w-full h-auto max-h-[500px] object-contain rounded-lg"
           />
         </div>
-        <div>
-          <h1 className="text-2xl font-bold mb-4">{product.title}</h1>
-          <p className="text-gray-600 mb-4">{product.description}</p>
-          <div className="mt-2">
-            <PriceComponent
-              price={product.price}
-              discountedPrice={product.discountedPrice}
-              showDiscountBadge={true}
-              showOriginalPrice={false}
-            />
-          </div>
+
+        <div className="max-w-md w-full space-y-4 mt-4 md:mt-0">
+          <h1 className="text-2xl font-bold">{product.title}</h1>
+          <p className="text-gray-600">{product.description}</p>
+
+          <PriceComponent
+            price={product.price}
+            discountedPrice={product.discountedPrice}
+            showDiscountBadge
+            showOriginalPrice
+          />
+
           <Button onClick={() => handleAddToCart(product)} variant="primary">
             Add to Cart
           </Button>
-          {/* Make review component */}
+
           {product.reviews.length > 0 && (
-            <div className="mt-8">
+            <div>
               <h2 className="text-xl font-bold mb-4">Reviews</h2>
               {product.reviews.map((review) => (
-                <div key={review.id} className="mb-4 p-4 bg-gray-50 rounded-lg">
-                  <p className="font-bold">{review.username}</p>
+                <article
+                  key={review.id}
+                  className="mb-4 p-4 bg-gray-50 rounded-lg"
+                >
+                  <h3 className="font-bold">{review.username}</h3>
                   <p>Rating: {review.rating}/5</p>
                   <p>{review.description}</p>
-                </div>
+                </article>
               ))}
             </div>
           )}
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   );
 };
-
-export default ProductDetails;

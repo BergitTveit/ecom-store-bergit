@@ -16,7 +16,7 @@ export const Navigation = () => {
           <li key={index}>
             <Link
               to={item.to}
-              className="flex items-center text-black no-underline gap-2 p-2 hover:text-secondary transition-colors lg:text-base lg:px-4"
+              className="flex items-center gap-2 p-2 lg:px-4 text-black no-underline  lg:text-base hover:text-secondary"
             >
               <h3 className="m-0 text-sm">{item.text}</h3>
             </Link>

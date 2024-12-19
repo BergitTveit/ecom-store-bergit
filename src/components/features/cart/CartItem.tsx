@@ -12,7 +12,7 @@ export const CartItem = ({ item: { product, quantity } }: CartItemProps) => {
   const { updateQuantity, removeItem } = useCartActions();
 
   return (
-    <div className="flex items-center justify-between pb-4 [&:not(:last-child)]:border-b">
+    <article className="flex items-center justify-between pb-4 [&:not(:last-child)]:border-b">
       <div className="flex items-center space-x-4">
         <img
           src={product.image.url}
@@ -35,6 +35,6 @@ export const CartItem = ({ item: { product, quantity } }: CartItemProps) => {
           Remove
         </Button>
       </div>
-    </div>
+    </article>
   );
 };

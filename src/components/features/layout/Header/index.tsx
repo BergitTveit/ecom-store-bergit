@@ -6,7 +6,7 @@ import { Logo } from "../../../UI/logo";
 
 export const Header = (props: { basic?: boolean }) => {
   return (
-    <header className="sticky top-0 left-0 z-50 w-full bg-primary shadow-md">
+    <header className="sticky top-0 left-0 w-full bg-primary shadow-md z-50">
       <div className="container-width container-padding flex items-center justify-between h-14 md:h-16 lg:h-20">
         <Logo />
         <Navigation />

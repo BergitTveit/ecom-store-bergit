@@ -24,10 +24,10 @@ const HomePage = () => {
   const filteredProducts = filterProductsBySearch(products, searchTerm);
 
   return (
-    <div>
+    <section>
       <SearchBar onSearch={setSearchTerm} products={products} />
       <ProductList products={filteredProducts} />
-    </div>
+    </section>
   );
 };
 

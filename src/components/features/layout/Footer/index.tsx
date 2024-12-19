@@ -8,7 +8,7 @@ import {
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-secondary py-8 mt-auto shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+    <footer className="w-full mt-auto py-8  bg-secondary shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
       <div className="container-width container-padding">
         <div className="flex justify-center mb-8">
           <ul className="list-none p-0 m-0 flex gap-6">
@@ -21,7 +21,7 @@ export const Footer = () => {
               <li key={index} className="text-sm">
                 <Link
                   to={item.to}
-                  className="flex items-center text-black no-underline p-2 hover:text-primary transition-colors lg:text-base lg:px-4"
+                  className="flex items-center  p-2 lg:px-4 text-black no-underline lg:text-base hover:text-primary "
                 >
                   <span>{item.text}</span>
                 </Link>
@@ -39,19 +39,19 @@ export const Footer = () => {
             <div className="flex items-center gap-10">
               <a
                 href="https://www.facebook.com/"
-                className="text-black hover:text-primary transition-colors"
+                className="text-black hover:text-primary "
               >
                 <FontAwesomeIcon icon={faFacebook} className="text-xl" />
               </a>
               <a
                 href="https://www.instagram.com/"
-                className="text-black hover:text-primary transition-colors"
+                className="text-black hover:text-primary "
               >
                 <FontAwesomeIcon icon={faInstagram} className="text-xl" />
               </a>
               <a
                 href="https://x.com/"
-                className="text-black hover:text-primary transition-colors"
+                className="text-black hover:text-primary "
               >
                 <FontAwesomeIcon icon={faTwitter} className="text-xl" />
               </a>
