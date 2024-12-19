@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   return (
-    <nav className="flex-1 hidden md:flex md:items-center md:justify-center md:mx-8">
-      <ul className="flex items-center list-none gap-8 m-0 p-0">
+    <nav className="hidden md:block">
+      <ul className="flex gap-12 lg:gap-16">
         {[
           { to: "/", text: "Fashion" },
           { to: "/", text: "Beauty" },
