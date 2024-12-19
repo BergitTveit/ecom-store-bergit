@@ -10,8 +10,8 @@ const CheckoutSuccessPage = () => {
   }, [clearCart]);
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="max-w-md mx-auto mt-10 text-center">
+    <main className="container mx-auto p-4">
+      <section className="max-w-md mx-auto mt-10 text-center">
         <div className="mb-6">
           <div className="w-16 h-16 bg-green-500 rounded-full mx-auto flex items-center justify-center">
             <span className="text-white text-2xl">✓</span>
@@ -28,8 +28,8 @@ const CheckoutSuccessPage = () => {
         <Button onClick={continueShopping} variant="primary">
           Return to Store
         </Button>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
