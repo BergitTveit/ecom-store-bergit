@@ -1,35 +1,36 @@
-import { Link, useNavigate } from "react-router-dom";
 import { MobileMenu } from "./MobileMenu";
-import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
 import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
+import { setSelectedTag } from "../../../../store/slices/productSlice";
 import { fetchTags } from "../../../../store/slices/tagSlice";
 
 export const Navigation = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const { tags } = useAppSelector((state) => state.tags);
+  const { selectedTag } = useAppSelector((state) => state.products);
+  const { tags, loading } = useAppSelector((state) => state.tags);
 
   useEffect(() => {
     dispatch(fetchTags());
   }, [dispatch]);
+
+  if (loading || tags.length === 0) return null;
+
   return (
     <>
       <nav className="hidden md:block">
         <ul className="flex gap-12 lg:gap-16">
-          {[
-            { to: "/", text: "Fashion" },
-            { to: "/", text: "Beauty" },
-            { to: "/", text: "Electronics" },
-            { to: "/", text: "SALE" },
-            //Swap out for map tags from fetch to get genres.
-          ].map((item, index) => (
+          {tags.map((tag: string, index: number) => (
             <li key={index}>
-              <Link
-                to={item.to}
-                className="flex items-center gap-2 p-2 lg:px-4 text-black no-underline  lg:text-base hover:text-secondary"
+              <button
+                onClick={() =>
+                  dispatch(setSelectedTag(selectedTag === tag ? null : tag))
+                }
+                className={`flex items-center text-black no-underline gap-2 p-2 
+                hover:text-secondary transition-colors lg:text-base lg:px-4
+                ${selectedTag === tag ? "text-secondary" : ""}`}
               >
-                <h3 className="m-0 text-sm">{item.text}</h3>
-              </Link>
+                <h3 className="m-0 text-sm capitalize">{tag}</h3>
+              </button>
             </li>
           ))}
         </ul>
@@ -38,12 +39,3 @@ export const Navigation = () => {
     </>
   );
 };
-
-//Most Frequent Tags - for NAV later.
-
-// fashion: 4
-// Covers categories like bags, shoes, and clothing accessories.
-// beauty: 3
-// Includes perfumes, skincare, and beauty products.
-// electronics, audio, shoes, headphones: 2 each
-// Electronics overlap with categories like headphones, speakers, and tech.

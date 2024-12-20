@@ -10,4 +10,11 @@ export const productsApi = {
     const response = await api.get<ApiResponse<Product>>(`/${id}`);
     return response.data.data;
   },
+  getTags: async (): Promise<string[]> => {
+    const products = await productsApi.getAll();
+    const tags = products.reduce((allTags: string[], product) => {
+      return [...allTags, ...product.tags];
+    }, []);
+    return Array.from(new Set(tags));
+  },
 };

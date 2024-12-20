@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ProductList from "../components/features/products/ProductList";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { fetchProducts } from "../store/slices/productSlice";
-import { filterProductsBySearch } from "../utils/searchFilters";
+
 import { SearchBar } from "../components/features/search/Searchbar";
+
+import { Navigation } from "../components/features/layout/Navigation";
+import { useCategoryFilter } from "../hooks/useCategoryFilter";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const { products, loading, error, initialized } = useAppSelector(
     (state) => state.products
   );
-  const [searchTerm, setSearchTerm] = useState("");
+  const { filteredProducts, searchTerm, setSearchTerm } = useCategoryFilter();
 
   useEffect(() => {
     if (!initialized) {
@@ -20,8 +23,6 @@ const HomePage = () => {
 
   if (!initialized && loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
-
-  const filteredProducts = filterProductsBySearch(products, searchTerm);
 
   return (
     <section>
