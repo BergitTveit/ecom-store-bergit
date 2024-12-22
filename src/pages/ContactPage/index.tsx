@@ -1,7 +1,7 @@
-import MyForm from "../../components/features/contact/ContactForm";
+import ContactForm from "../../components/features/contact/ContactForm";
 
 const ContactPage = () => {
-  return <MyForm />;
+  return <ContactForm />;
 };
 
 export default ContactPage;
