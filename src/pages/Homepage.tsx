@@ -10,7 +10,7 @@ const HomePage = () => {
   const { products, loading, error, initialized } = useAppSelector(
     (state) => state.products
   );
-  const { filteredProducts, searchTerm, setSearchTerm } = useCategoryFilter();
+  const { filteredProducts, setSearchTerm } = useCategoryFilter();
 
   useEffect(() => {
     if (!initialized) {
