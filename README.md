@@ -1,46 +1,117 @@
-# Getting Started with Create React App
+# eCommerce Store Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based eCommerce store built with TypeScript, featuring product browsing, cart management, and a checkout process.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- Product browsing with search functionality
+- Individual product pages with detailed information
+- Shopping cart management
+- Checkout process
+- Contact form with validation
+- Responsive design
+- State management with Redux
+- Form handling with React Hook Form
+- API integration with axios
+- Type safety with TypeScript
 
-### `npm start`
+## 🛠️ Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React 18
+- TypeScript
+- Redux Toolkit
+- React Router v6
+- React Query
+- React Hook Form
+- Axios
+- TailwindCSS
+- Font Awesome
+- Yup validation
+- Husky (Git hooks)
+- Prettier (Code formatting)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📋 Prerequisites
 
-### `npm test`
+- Node.js (version 16 or higher)
+- npm or yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔧 Installation
 
-### `npm run build`
+1. Clone the repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone [your-repository-url]
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+3. Start the development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application will be available at `http://localhost:3000`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🏗️ Project Structure
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+src/
+├── components/    # Reusable components
+├── pages/         # Page components
+├── store/         # Redux store configuration
+├── hooks/         # Custom hooks
+├── types/         # TypeScript types/interfaces
+├── utils/         # Utility functions
+└── api/          # API integration
+```
 
-## Learn More
+## 📝 Pages
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Homepage**: Display products with search functionality
+- **Product Page**: Individual product details and add to cart option
+- **Cart Page**: Shopping cart management
+- **Checkout Success**: Order confirmation
+- **Contact**: Contact form with validation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔄 API Integration
+
+The application integrates with the Noroff API:
+
+- Base URL: `https://v2.api.noroff.dev/online-shop`
+- Individual products: `https://v2.api.noroff.dev/online-shop/{id}`
+
+## 🚥 Scripts
+
+- `npm start`: Start development server
+- `npm build`: Build for production
+- `npm test`: Run tests
+- `npm run eject`: Eject from Create React App
+
+## 🧪 Testing
+
+Tests are written using Jest and React Testing Library. Run tests with:
+
+```bash
+npm test
+```
+
+## 📦 Deployment
+
+The project is configured for deployment on Netlify. Pushing to the main branch will trigger automatic deployment.
+
+## 🔐 Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```
+REACT_APP_API_URL=https://v2.api.noroff.dev/online-shop
+```
+
+## 📜 License
+
+This project is licensed under the MIT License.
