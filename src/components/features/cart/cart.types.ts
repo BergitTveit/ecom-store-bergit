@@ -4,7 +4,7 @@ export interface ICartItem {
   product: Product;
   quantity: number;
 }
-// use extend instead?
+
 
 export interface CartState {
   items: ICartItem[];

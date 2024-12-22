@@ -7,7 +7,7 @@ export const filterProductsBySearch = (
   if (!searchTerm) return products;
 
   const term = searchTerm.toLowerCase();
-  
+
   return products.filter(
     (product) =>
       product.title.toLowerCase().includes(term) ||
@@ -22,9 +22,9 @@ export const getSearchProductSuggestions = (
 ): string[] => {
   if (!searchTerm) return [];
   const term = searchTerm.toLowerCase();
-  
+
   return products
-    .filter(p => p.title.toLowerCase().includes(term))
-    .map(p => p.title)
+    .filter((p) => p.title.toLowerCase().includes(term))
+    .map((p) => p.title)
     .slice(0, maxSuggestions);
 };

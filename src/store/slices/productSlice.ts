@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { productsApi } from "../../api/index";
 import { Product } from "../../api/api.types";
-// import { RejectedAction } from "@reduxjs/toolkit/dist/createAsyncThunk"; Consider installing for rejected actions.
 
 interface ProductState {
   products: Product[];
   currentProduct: Product | null;
+  selectedTag: string | null;
   loading: boolean;
   error: string | null;
   initialized: boolean;
@@ -14,6 +14,7 @@ interface ProductState {
 const initialState: ProductState = {
   products: [],
   currentProduct: null,
+  selectedTag: null,
   loading: false,
   error: null,
   initialized: false,
@@ -33,7 +34,11 @@ export const fetchProductById = createAsyncThunk(
 const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setSelectedTag: (state, action: PayloadAction<string | null>) => {
+      state.selectedTag = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state: ProductState) => {
@@ -70,4 +75,5 @@ const productSlice = createSlice({
   },
 });
 
+export const { setSelectedTag } = productSlice.actions;
 export default productSlice.reducer;
