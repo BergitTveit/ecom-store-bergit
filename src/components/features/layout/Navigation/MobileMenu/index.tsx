@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { setSelectedTag } from "../../../../store/slices/productSlice";
-import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
-import { MAIN_CATEGORIES } from "./categories/constants";
+import { setSelectedTag } from "../../../../../store/slices/products";
+import { useAppDispatch, useAppSelector } from "../../../../../hooks/redux";
+import { MAIN_CATEGORIES } from "../categories/constants";
 import { useNavigate } from "react-router-dom";
 
 export const MobileMenu = () => {

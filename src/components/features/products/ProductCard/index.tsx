@@ -1,6 +1,6 @@
 import { Product } from "../../../../api/api.types";
 import PriceComponent from "../../../UI/PriceComponents";
-import { useProducts } from "../../../../hooks/useProducts";
+import { useProducts } from "../../../../hooks/products";
 import { Button } from "../../../UI/Button";
 
 interface ProductCardProps {

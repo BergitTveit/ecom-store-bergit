@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import { useAppSelector, useAppDispatch } from "./reduxHooks";
-import { removeFromCart, updateQuantity } from "../store/slices/cartSlice";
-import { calculateCartTotal } from "../utils/priceCalculators";
+import { useAppDispatch, useAppSelector } from "../redux";
+import { calculateCartTotal } from "../../utils/priceCalculators";
+import { removeFromCart, updateQuantity } from "../../store/slices/cart";
 
 export const useCart = () => {
   const dispatch = useAppDispatch();

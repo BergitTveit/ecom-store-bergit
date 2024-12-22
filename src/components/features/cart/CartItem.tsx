@@ -1,7 +1,7 @@
 import React from "react";
 import { ICartItem } from "./cart.types";
 import { QuantityControls } from "../../UI/QuantityControls";
-import { useCartActions } from "../../../hooks/useCartActions";
+import { useCartActions } from "../../../hooks/cart";
 import { Button } from "../../UI/Button";
 
 type CartItemProps = {

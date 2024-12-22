@@ -1,4 +1,5 @@
-import { useCartActions } from "../../../hooks/useCartActions";
+
+import { useCartActions } from "../../../hooks/cart";
 import { Button } from "../../UI/Button";
 
 export const EmptyCartMessage = () => {

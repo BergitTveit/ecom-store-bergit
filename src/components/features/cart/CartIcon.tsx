@@ -1,7 +1,7 @@
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useCart } from "../../../hooks/useCart";
-import { useCartActions } from "../../../hooks/useCartActions";
+import { useCart } from "../../../hooks/cart";
+import { useCartActions } from "../../../hooks/cart";
 
 export const CartIcon = () => {
   const { itemCount } = useCart();
