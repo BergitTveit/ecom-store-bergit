@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import ProductList from "../components/features/products/ProductList";
-import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
-import { fetchProducts } from "../store/slices/productSlice";
-import { SearchBar } from "../components/features/search/Searchbar";
-import { useCategoryFilter } from "../hooks/useCategoryFilter";
+import ProductList from "../../components/features/products/ProductList";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { fetchProducts } from "../../store/slices/productSlice";
+import { SearchBar } from "../../components/features/search/Searchbar";
+import { useCategoryFilter } from "../../hooks/useCategoryFilter";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();

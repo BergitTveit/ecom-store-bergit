@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useCartActions } from "../hooks/useCartActions";
-import { Button } from "../components/UI/Button";
+import { useCartActions } from "../../hooks/cart";
+import { Button } from "../../components/UI/Button";
 
 export const CheckoutSuccessPage = () => {
   const { clearCart, continueShopping } = useCartActions();
