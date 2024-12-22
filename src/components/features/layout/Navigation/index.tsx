@@ -1,35 +1,34 @@
 import { MobileMenu } from "./MobileMenu";
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
 import { setSelectedTag } from "../../../../store/slices/productSlice";
-import { fetchTags } from "../../../../store/slices/tagSlice";
+import { MAIN_CATEGORIES } from "./categories/constants";
 
 export const Navigation = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { selectedTag } = useAppSelector((state) => state.products);
-  const { tags, loading } = useAppSelector((state) => state.tags);
 
-  useEffect(() => {
-    dispatch(fetchTags());
-  }, [dispatch]);
-
-  if (loading || tags.length === 0) return null;
+  const handleTagClick = (categoryName: string) => {
+    dispatch(
+      setSelectedTag(selectedTag === categoryName ? null : categoryName)
+    );
+    navigate("/");
+  };
 
   return (
     <>
       <nav className="hidden md:block">
         <ul className="flex gap-12 lg:gap-16">
-          {tags.map((tag: string, index: number) => (
+          {MAIN_CATEGORIES.map((category, index) => (
             <li key={index}>
               <button
-                onClick={() =>
-                  dispatch(setSelectedTag(selectedTag === tag ? null : tag))
-                }
+                onClick={() => handleTagClick(category.name)}
                 className={`flex items-center text-black no-underline gap-2 p-2 
                 hover:text-secondary transition-colors lg:text-base lg:px-4
-                ${selectedTag === tag ? "text-secondary" : ""}`}
+                ${selectedTag === category.name ? "text-secondary" : ""}`}
               >
-                <h3 className="m-0 text-sm capitalize">{tag}</h3>
+                <h3 className="m-0 text-sm capitalize">{category.name}</h3>
               </button>
             </li>
           ))}

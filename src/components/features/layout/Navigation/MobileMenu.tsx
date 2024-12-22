@@ -1,13 +1,22 @@
 import { useState } from "react";
 import { setSelectedTag } from "../../../../store/slices/productSlice";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
+import { MAIN_CATEGORIES } from "./categories/constants";
+import { useNavigate } from "react-router-dom";
 
 export const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { selectedTag } = useAppSelector((state) => state.products);
-  const { tags } = useAppSelector((state) => state.tags);
 
+  const handleCategoryClick = (categoryName: string) => {
+    dispatch(
+      setSelectedTag(selectedTag === categoryName ? null : categoryName)
+    );
+    setIsOpen(false);
+    navigate("/");
+  };
   return (
     <div className="md:hidden">
       <button
@@ -41,22 +50,17 @@ export const MobileMenu = () => {
         <div className="absolute top-14 left-0 right-0 bg-white shadow-lg">
           <nav className="px-4 py-2">
             <ul className="space-y-2">
-              {tags.map((tag: string, index: number) => (
+              {MAIN_CATEGORIES.map((category, index) => (
                 <li key={index}>
                   <button
-                    onClick={() => {
-                      dispatch(
-                        setSelectedTag(selectedTag === tag ? null : tag)
-                      );
-                      setIsOpen(false);
-                    }}
+                    onClick={() => handleCategoryClick(category.name)}
                     className={`
-                      block w-full text-left py-2 
+                      block w-full text-left py-2
                       text-black hover:text-primary transition-colors capitalize
-                      ${selectedTag === tag ? "text-primary" : ""}
+                      ${selectedTag === category.name ? "text-primary" : ""}
                     `}
                   >
-                    {tag}
+                    {category.name}
                   </button>
                 </li>
               ))}

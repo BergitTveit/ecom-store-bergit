@@ -7,7 +7,7 @@ export const calculateDiscount = (price: number, discountedPrice: number) => {
   const discountPercentage = Math.round((discount / price) * 100);
   return { amount: discount, percentage: discountPercentage };
 };
-// do discount need interface?
+
 
 export const calculateCartTotal = (items: ICartItem[]): number => {
   return items.reduce(
@@ -15,5 +15,3 @@ export const calculateCartTotal = (items: ICartItem[]): number => {
     0
   );
 };
-
-//Consider calculator for; Total all item type. Total savings.

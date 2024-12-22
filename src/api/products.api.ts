@@ -1,5 +1,6 @@
 import { api } from "./config";
 import { Product, ApiResponse } from "./api.types";
+import { MAIN_CATEGORIES, MainCategory } from "../components/features/layout/Navigation/categories/constants";
 
 export const productsApi = {
   getAll: async (): Promise<Product[]> => {
@@ -9,12 +10,9 @@ export const productsApi = {
   getById: async (id: string): Promise<Product> => {
     const response = await api.get<ApiResponse<Product>>(`/${id}`);
     return response.data.data;
-  },
-  getTags: async (): Promise<string[]> => {
-    const products = await productsApi.getAll();
-    const tags = products.reduce((allTags: string[], product) => {
-      return [...allTags, ...product.tags];
-    }, []);
-    return Array.from(new Set(tags));
-  },
+  }, 
+  getCategories: (): MainCategory[] => {
+    return MAIN_CATEGORIES;
+  }
+
 };
