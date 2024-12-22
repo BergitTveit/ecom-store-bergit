@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { setSelectedTag } from "../../../../store/slices/productSlice";
+import { setSelectedTag } from "../../../../store/slices/products";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
 import { MAIN_CATEGORIES } from "./categories/constants";
 import { useNavigate } from "react-router-dom";

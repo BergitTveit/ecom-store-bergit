@@ -3,7 +3,7 @@ import {
   clearCart,
   removeFromCart,
   updateQuantity,
-} from "../../store/slices/cartSlice";
+} from "../../store/slices/cart";
 import { useAppDispatch } from "../redux";
 
 export const useCartActions = () => {

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { productsApi } from "../../api/index";
-import { Product } from "../../api/api.types";
+import { productsApi } from "../../../api/index";
+import { Product } from "../../../api/api.types";
 
 interface ProductState {
   products: Product[];
@@ -76,4 +76,4 @@ const productSlice = createSlice({
 });
 
 export const { setSelectedTag } = productSlice.actions;
-export default productSlice.reducer;
+export const productReducer = productSlice.reducer;

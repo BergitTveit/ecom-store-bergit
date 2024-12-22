@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { fetchProductById } from "../../store/slices/productSlice";
+import { fetchProductById } from "../../store/slices/products";
 import { ProductDetails } from "../../components/features/products/ProductDetails";
 
 const ProductPage = () => {

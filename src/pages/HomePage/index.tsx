@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import ProductList from "../../components/features/products/ProductList";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { fetchProducts } from "../../store/slices/productSlice";
+import { fetchProducts } from "../../store/slices/products";
 import { SearchBar } from "../../components/features/search/Searchbar";
 import { useCategoryFilter } from "../../hooks/products";
 
