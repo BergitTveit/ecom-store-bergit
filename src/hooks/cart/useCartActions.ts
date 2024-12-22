@@ -3,8 +3,8 @@ import {
   clearCart,
   removeFromCart,
   updateQuantity,
-} from "../store/slices/cartSlice";
-import { useAppDispatch } from "./reduxHooks";
+} from "../../store/slices/cartSlice";
+import { useAppDispatch } from "../redux";
 
 export const useCartActions = () => {
   const dispatch = useAppDispatch();

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../../hooks/reduxHooks";
+import { useAppDispatch } from "../../hooks/redux";
 import { setSelectedTag } from "../../store/slices/productSlice";
 
 export const Logo = () => {

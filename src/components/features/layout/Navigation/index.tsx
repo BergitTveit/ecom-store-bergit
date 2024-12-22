@@ -1,6 +1,6 @@
 import { MobileMenu } from "./MobileMenu";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
 import { setSelectedTag } from "../../../../store/slices/productSlice";
 import { MAIN_CATEGORIES } from "./categories/constants";
 

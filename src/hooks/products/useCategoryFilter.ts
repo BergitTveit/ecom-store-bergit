@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { filterProductsBySearch } from "../utils/searchFilters";
-import { useAppSelector } from "./reduxHooks";
-import { MAIN_CATEGORIES } from "../components/features/layout/Navigation/categories/constants";
+import { filterProductsBySearch } from "../../utils/searchFilters";
+import { useAppSelector } from "../redux";
+import { MAIN_CATEGORIES } from "../../components/features/layout/Navigation/categories/constants";
 
 export const useCategoryFilter = () => {
   const { products, selectedTag } = useAppSelector((state) => state.products);

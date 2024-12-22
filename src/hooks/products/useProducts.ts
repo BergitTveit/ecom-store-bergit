@@ -1,6 +1,6 @@
-import { useAppDispatch } from "./reduxHooks";
-import { Product } from "../api";
-import { addToCart } from "../store/slices/cartSlice";
+import { useAppDispatch } from "../redux";
+import { Product } from "../../api";
+import { addToCart } from "../../store/slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 export const useProducts = () => {
