@@ -40,7 +40,7 @@ A React-based eCommerce store built with TypeScript, featuring product browsing,
 1. Clone the repository:
 
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/BergitTveit/ecom-store-bergit
 ```
 
 2. Install dependencies:
