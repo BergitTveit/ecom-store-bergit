@@ -1,6 +1,10 @@
 # eCommerce Store Project
-
+![Homepage](./screenshots/Javascript_frameworks.png)
 A React-based eCommerce store built with TypeScript, featuring product browsing, cart management, and a checkout process.
+
+## 🌐 Live Demo
+
+Check out the live demo: [eCommerce Store](https://obsessandposess.netlify.app/)
 
 ## 🚀 Features
 
@@ -111,6 +115,22 @@ Create a `.env` file in the root directory with the following variables:
 ```
 REACT_APP_API_URL=https://v2.api.noroff.dev/online-shop
 ```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📞 Contact
+
+Email: bergittveit@gmail.com
+
+Project Link: [https://github.com/BergitTveit/ecom-store-bergit](https://github.com/BergitTveit/ecom-store-bergit)
 
 ## 📜 License
 
